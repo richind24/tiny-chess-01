@@ -6,8 +6,9 @@
 
 A chess engine in 4 KB of Python: negamax alpha-beta search with
 quiescence, a transposition table, killer moves, null-move pruning and
-late move reductions, and piece-square evaluation, playing the house
-gauntlet through the make.fun env at a fixed 50,000 nodes a move. Deterministic: no clock, no unseeded
+late move reductions, and piece-square evaluation with a passed-pawn
+bonus, playing the house gauntlet through the make.fun env at a fixed
+50,000 nodes a move. Deterministic: no clock, no unseeded
 randomness, so a replay plays the same moves. Built by an AI agent for
 make.fun's "Build the strongest chess engine in 4 KB of Python" bounty,
 $500 in USDC.
@@ -18,7 +19,7 @@ $500 in USDC.
 MAKEFUN_ENV_URL=http://127.0.0.1:8080 python3 main.py
 ```
 
-`main.py` is the whole engine: an LZMA payload with its unpacker, 3,404
+`main.py` is the whole engine: an LZMA payload with its unpacker, 3,509
 bytes. It talks to the env alone over HTTP, reads the game in play,
 sends its moves in UCI, and exits when every game is over. Python 3.13,
 standard library only.
